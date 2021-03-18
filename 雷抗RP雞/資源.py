@@ -22,13 +22,13 @@ class Bag():
         self.Hamburger = hamburger   #特大麥香雞
     
     def show(self):
-        print('金幣:',chicken_bag.Money,'鑽石:',chicken_bag.Diamond,'雞飼料:',chicken_bag.Food,'蛋糕:',chicken_bag.Cake,'餅乾:',chicken_bag.Cookies,'特大麥香雞',chicken_bag.Hamburger,end = '')
+        print('金幣:',chicken_bag.Money,'鑽石:',chicken_bag.Diamond,'有機雞飼料:',chicken_bag.Food,'生乳酪蛋糕:',chicken_bag.Cake,'餅乾:',chicken_bag.Cookies,'特大麥香雞',chicken_bag.Hamburger,end = '')
         input(':')
 
-    def add_money(add):
+    def add_money(self,add):
         self.Money = self.Money + add
     
-    def add_diamond(add):
+    def add_diamond(self,add):
         self.Diamond = self.Diamond + add
 
     def add_food(self,add):
@@ -48,7 +48,7 @@ class Bag():
             chicken.BP += 5 
             chicken.Hunger += 5
             self.add_food(-1)
-            print(chicken.Name,'吃了雞飼料 ! ! ',end = '')
+            print(chicken.Name,'吃了有機雞飼料 ! ! ',end = '')
             input(':')
             print(chicken.Name,'的行動值增加 5 ,飽食度增加 5 ',end = '')
             input(':')
@@ -57,7 +57,7 @@ class Bag():
             chicken.Hunger += 25
             chicken.State += 15
             self.add_cake(-1)
-            print(chicken.Name,'一臉滿足的吃下了蛋糕 ',end = '')
+            print(chicken.Name,'一臉滿足的吃下了生乳酪蛋糕 ',end = '')
             input(':')
             print(chicken.Name,'的行動值增加 3 ,飽食度增加 25 ,心情增加 15 ',end = '')
             input(':')
@@ -79,24 +79,45 @@ class Bag():
             print(chicken.Name,'的行動值增加 50 ,飽食度增加 50 ,心情減少 40 ',end = '')
             input(':')
   
-#chicken_bag = Bag(100,5,10,10,10,19)  #test        
+chicken_bag = Bag(100,5,10,10,10,19)          
 
 #------------------------------------商店--------------------------------------
 
 class Shop():
     def __init__(self,food_money,cake_money,cookies_money,hamburger_money):
         self.Food_money = food_money
-def shop(shop_id):
-    print('這位勇敢的',chicken.Name,'你想買些什麼東西呢 ? ',end = (''))
-    input('有機雞飼料:',)
+        self.Cake_money = cake_money
+        self.Cookies_money = cookies_money
+        self.Hamburger_money = hamburger_money
+    def Buy(self,shop_id):
+        print('這位勇敢的',chicken.Name,'你想買些什麼東西呢 ?')
+        print('')
+        input('請輸入想買的物品編號 : ')
     
-    if shop_id == 1:
-        print('獲得了雞飼料 ! ! ',end = '')
-        input = (':')
-    
+            if shop_id == 1:
+                chicken_bag.add_money((-1)*shop.Food_money)
+                chicken_bag.add_food(1)
+                print('獲得了有機雞飼料 ! ! ',end = '')
+                input(':')
+            if shop_id == 2:
+            chicken_bag.add_money((-1)*shop.Cake_money)
+            chicken_bag,add_cake(1)
+            print('獲得了生乳酪蛋糕 ! ! ',end = '')
+            input(':')
+            if shop_id == 3:
+            chicken_bag,add_money((-1)*shop.Cookies_money)
+            chicken_bag,add_cookies(1)
+            print('獲得了鴨子造型餅乾 ! ! ',end = '')
+            input(':')
+            if shop_id == 4:
+            chicken_bag,add_money((-1)*shop.Hamburger_money)
+            chicken_bag,add_hamburger(1)
+            print('獲得了特大麥香雞 ! ! ',end = '')
+            input(':')
+shop = Shop(5,30,15,50)    
             
 #------------------------------------Test--------------------------------------
-shop(1)
+shop.Buy()
 
 '''
 chicken.show_2()
