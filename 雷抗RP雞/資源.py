@@ -83,6 +83,9 @@ class Bag():
 
 #------------------------------------商店--------------------------------------
 
+class Shop():
+    def __init__(self,food_money,cake_money,cookies_money,hamburger_money):
+        self.Food_money = food_money
 def shop(shop_id):
     print('這位勇敢的',chicken.Name,'你想買些什麼東西呢 ? ',end = (''))
     input('有機雞飼料:',)
@@ -110,3 +113,4 @@ chicken_bag.show()
 chicken_bag.Eat(4)
 chicken_bag.show()
 chicken.show_2()
+'''
